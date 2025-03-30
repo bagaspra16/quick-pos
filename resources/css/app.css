@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* Card styles */
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-md shadow overflow-hidden;
+  }
+
+  /* Button styles */
+  .btn {
+    @apply inline-flex items-center px-4 py-2 rounded-md font-semibold text-xs uppercase tracking-widest focus:outline-none focus:ring disabled:opacity-25 transition ease-in-out duration-150;
+  }
+
+  .btn-primary {
+    @apply bg-blue-600 dark:bg-blue-700 text-white hover:bg-blue-700 dark:hover:bg-blue-600 focus:border-blue-700 focus:ring-blue-200;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-600 dark:bg-gray-700 text-white hover:bg-gray-700 dark:hover:bg-gray-600 focus:border-gray-700 focus:ring-gray-200;
+  }
+
+  .btn-success {
+    @apply bg-green-600 dark:bg-green-700 text-white hover:bg-green-700 dark:hover:bg-green-600 focus:border-green-700 focus:ring-green-200;
+  }
+
+  .btn-danger {
+    @apply bg-red-600 dark:bg-red-700 text-white hover:bg-red-700 dark:hover:bg-red-600 focus:border-red-700 focus:ring-red-200;
+  }
+
+  .btn-warning {
+    @apply bg-yellow-600 dark:bg-yellow-700 text-white hover:bg-yellow-700 dark:hover:bg-yellow-600 focus:border-yellow-700 focus:ring-yellow-200;
+  }
+
+  .btn-sm {
+    @apply py-1 px-2 text-xs;
+  }
+
+  /* Form components */
+  .form-input, .form-textarea, .form-select {
+    @apply w-full mt-1 rounded-md shadow-sm border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200 focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50;
+  }
+}
+
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
