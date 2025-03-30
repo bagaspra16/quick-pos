@@ -101,23 +101,18 @@ php artisan migrate --seed
 php artisan storage:link
 ```
 
-8. Kompilasi aset frontend:
-```bash
-npm run build
-```
-
-9. Jalankan server:
+8. Jalankan server:
 ```bash
 php artisan serve
 ```
 
-10. Akses aplikasi di browser: `http://localhost:8000`
+9. Akses aplikasi di browser: `http://localhost:8000`
 
 ## Penggunaan Dasar
 
 ### Login Administrator
 - Username: admin@example.com
-- Password: password
+- Password: digitalquickpos123
 
 ### Langkah Dasar Pengoperasian
 1. Buat kategori produk (Makanan, Minuman, etc)
@@ -158,3 +153,90 @@ php artisan serve
 - Sistem reservasi meja
 - Laporan stok dan inventori
 - Program loyalitas pelanggan
+
+## Mengunggah ke GitHub
+
+Untuk memasukkan project ini ke GitHub, ikuti langkah-langkah berikut:
+
+1. **Buat Repository di GitHub**:
+   - Login ke akun GitHub Anda
+   - Buat repository baru dengan nama `quick-pos`
+   - Jangan menginisialisasi repository dengan README, .gitignore, atau License
+
+2. **Persiapkan Project untuk GitHub**:
+   - Pastikan Anda sudah memiliki file `.gitignore` yang tepat untuk project Laravel. Jika belum, buat file baru dengan konten berikut:
+
+   ```
+   /node_modules
+   /public/hot
+   /public/storage
+   /storage/*.key
+   /vendor
+   .env
+   .env.backup
+   .phpunit.result.cache
+   docker-compose.override.yml
+   Homestead.json
+   Homestead.yaml
+   npm-debug.log
+   yarn-error.log
+   /.idea
+   /.vscode
+   ```
+
+3. **Persiapkan .env.example**:
+   - Untuk menjaga keamanan informasi sensitif namun tetap memberikan template konfigurasi, konversi file `.env` menjadi `.env.example`:
+   
+   ```bash
+   # Salin .env ke .env.example dan hapus nilai-nilai sensitif
+   cat .env | grep -v "APP_KEY" | grep -v "DB_PASSWORD" | grep -v "MAIL_PASSWORD" | grep -v "REDIS_PASSWORD" | grep -v "AWS" | grep -v "PUSHER" > .env.example
+   
+   # Atau salin secara manual dan hapus/ganti nilai sensitif
+   cp .env .env.example
+   ```
+   
+   - Buka file `.env.example` dan ganti semua nilai sensitif dengan placeholder:
+     - `APP_KEY=base64:your_application_key_here`
+     - `DB_PASSWORD=your_database_password_here`
+     - dan seterusnya
+   
+   - File `.env.example` ini akan menjadi template bagi pengguna lain yang mengkloning repository
+
+4. **Inisialisasi Git dan Unggah ke GitHub**:
+   - Buka terminal dan arahkan ke directory project
+   - Jalankan perintah berikut satu per satu:
+
+   ```bash
+   # Inisialisasi Git repository lokal
+   git init
+
+   # Tambahkan semua file ke staging area
+   git add .
+
+   # Commit perubahan
+   git commit -m "Initial commit"
+
+   # Tambahkan remote repository
+   git remote add origin https://github.com/username/quick-pos.git
+
+   # Push ke repository GitHub
+   git push -u origin main
+   ```
+
+   (Catatan: Jika branch utama Anda bernama `master`, gunakan `git push -u origin master`)
+
+5. **Lindungi Informasi Sensitif**:
+   - Pastikan file `.env` sudah masuk dalam `.gitignore`
+   - Jangan pernah mengupload kredensial database atau API key ke GitHub
+   - Selalu periksa commit Anda sebelum push untuk memastikan tidak ada informasi sensitif yang terekspos
+
+6. **Verifikasi**:
+   - Buka repository GitHub Anda untuk memastikan semua file telah terunggah dengan benar
+   - Pastikan file sensitif seperti `.env` tidak terunggah, tetapi `.env.example` sudah ada
+
+### Tips Tambahan untuk Kolaborasi
+
+- Gunakan branch terpisah untuk fitur baru: `git checkout -b nama-fitur`
+- Selalu pull perubahan terbaru sebelum mulai bekerja: `git pull origin main`
+- Gunakan Issues dan Pull Requests GitHub untuk mengelola pekerjaan tim
+- Pertimbangkan untuk menyiapkan GitHub Actions untuk CI/CD otomatis
