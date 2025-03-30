@@ -2,8 +2,6 @@
 
 Quick POS adalah aplikasi Point of Sale (POS) berbasis web yang dikembangkan menggunakan framework Laravel. Aplikasi ini dirancang untuk membantu manajemen restoran atau kafe dalam mengelola pesanan, pembayaran, dan aktivitas operasional lainnya.
 
-![Quick POS Screenshot](https://placeholder-for-screenshot.png)
-
 ## Fitur Utama
 
 ### 1. Manajemen Menu
