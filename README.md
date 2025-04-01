@@ -2,98 +2,98 @@
 
 # Quick POS
 
-Quick POS adalah aplikasi Point of Sale (POS) berbasis web yang dikembangkan menggunakan framework Laravel. Aplikasi ini dirancang untuk membantu manajemen restoran atau kafe dalam mengelola pesanan, pembayaran, dan aktivitas operasional lainnya.
+Quick POS is a web-based Point of Sale (POS) application developed using the Laravel framework. This application is designed to help restaurant or café management in managing orders, payments, and other operational activities.
 
-## Fitur Utama
+## Key Features
 
-### 1. Manajemen Menu
-- Mengelola katalog produk (makanan dan minuman)
-- Mengkategorikan produk untuk navigasi yang lebih mudah
-- Pengaturan ketersediaan produk (tersedia/tidak tersedia)
-- Unggah gambar produk
+### 1. Menu Management
+- Manage product catalog (food and beverages)
+- Categorize products for easier navigation
+- Product availability settings (available/unavailable)
+- Upload product images
 
-### 2. Manajemen Meja
-- Pengelolaan meja dengan kapasitas dan status (tersedia, terisi, direservasi)
-- Pemberian QR Code unik untuk setiap meja
-- Pelanggan dapat memindai QR Code untuk melihat menu dan memesan
+### 2. Table Management
+- Manage tables with capacity and status (available, occupied, reserved)
+- Generate unique QR Code for each table
+- Customers can scan QR Code to view menu and place orders
 
-### 3. Pemesanan
-- Pemesanan langsung dari meja menggunakan smartphone (scan QR Code)
-- Pemesanan dari kasir/staff
-- Status pesanan real-time (menunggu, diproses, selesai, dibatalkan)
-- Pantau status setiap item pesanan (menunggu, dipersiapkan, siap, diantarkan)
-- Catatan khusus untuk setiap pesanan dan item pesanan
+### 3. Ordering
+- Direct ordering from tables using smartphones (QR Code scan)
+- Ordering from cashier/staff
+- Real-time order status (pending, processing, completed, cancelled)
+- Monitor status of each order item (pending, preparing, ready, served)
+- Special notes for each order and order item
 
-### 4. Pembayaran
-- Dukungan berbagai metode pembayaran (tunai, debit, kredit, QRIS, dll)
-- Cetak struk pembayaran
-- Rekam jumlah uang diterima dan kembalian
-- Pelacakan status pembayaran
+### 4. Payments
+- Support for various payment methods (cash, debit, credit, QRIS, etc.)
+- Print payment receipts
+- Record received amount and change
+- Payment status tracking
 
-### 5. Dashboard & Analitik
-- Ringkasan penjualan harian
-- Produk terlaris
-- Status meja real-time
-- Grafik penjualan mingguan dan bulanan
-- Pemantauan kinerja berdasarkan kategori (makanan/minuman)
-- Analisis metode pembayaran
-- Nilai rata-rata pesanan
-- Performa meja
+### 5. Dashboard & Analytics
+- Daily sales summary
+- Top-selling products
+- Real-time table status
+- Weekly and monthly sales charts
+- Performance monitoring by category (food/beverage)
+- Payment method analysis
+- Average order value
+- Table performance
 
-### 6. Manajemen Pengguna
-- Multi-role (Admin, Kasir, Staff, dll)
-- Manajemen izin berdasarkan peran
-- Profil pengguna dan pengaturan keamanan
+### 6. User Management
+- Multi-role (Admin, Cashier, Staff, etc.)
+- Role-based permission management
+- User profiles and security settings
 
-## Teknologi
+## Technology
 
-Quick POS dibangun menggunakan teknologi berikut:
+Quick POS is built using the following technologies:
 
 - **Backend**: Laravel 10.x, PHP 8.1+
 - **Database**: PostgreSQL
 - **Frontend**: Blade Template, TailwindCSS, Alpine.js
-- **Otentikasi**: Laravel's built-in authentication
-- **QR Code**: Dikembangkan untuk akses menu digital
-- **Dashboard**: Chart.js untuk visualisasi data
+- **Authentication**: Laravel's built-in authentication
+- **QR Code**: Developed for digital menu access
+- **Dashboard**: Chart.js for data visualization
 
-## Persyaratan Sistem
+## System Requirements
 
-- PHP 8.1 atau yang lebih baru
+- PHP 8.1 or newer
 - Composer
 - PostgreSQL
-- Node.js & NPM untuk aset frontend
+- Node.js & NPM for frontend assets
 - Web server (Apache/Nginx)
 
-## Instalasi
+## Installation
 
-Berikut adalah langkah-langkah untuk menginstal dan menjalankan aplikasi Quick POS di lingkungan lokal Anda:
+Follow these steps to install and run the Quick POS application in your local environment:
 
-1. Clone repositori:
+1. Clone the repository:
 ```bash
 git clone https://github.com/bagaspra16/quick-pos.git
 cd quick-pos
 ```
 
-2. Instal dependensi PHP:
+2. Install PHP dependencies:
 ```bash
 composer install
 ```
 
-3. Instal dependensi JavaScript:
+3. Install JavaScript dependencies:
 ```bash
 npm install
 ```
 
-4. Konfigurasi lingkungan:
-   - Salin file `.env.example` menjadi `.env`
-   - Sesuaikan pengaturan database dan aplikasi dalam file `.env`
+4. Configure environment:
+   - Copy `.env.example` file to `.env`
+   - Adjust database and application settings in the `.env` file
 
-5. Generate kunci aplikasi:
+5. Generate application key:
 ```bash
 php artisan key:generate
 ```
 
-6. Jalankan migrasi dan seeder:
+6. Run migrations and seeders:
 ```bash
 php artisan migrate --seed
 ```
@@ -103,62 +103,64 @@ php artisan migrate --seed
 php artisan storage:link
 ```
 
-8. Jalankan server:
+8. Compile frontend assets:
+```bash
+npm run build
+```
+
+9. Run server:
 ```bash
 php artisan serve
 ```
 
-9. Akses aplikasi di browser: `http://localhost:8000`
+10. Access the application in your browser: `http://localhost:8000`
 
-## Penggunaan Dasar
+## Basic Usage
 
-### Login Administrator
+### Administrator Login
 - Username: admin@example.com
 - Password: digitalquickpos123
 
-### Langkah Dasar Pengoperasian
-1. Buat kategori produk (Makanan, Minuman, etc)
-2. Tambahkan produk ke dalam kategori
-3. Buat dan atur meja dengan QR Code
-4. Mulai terima pesanan dari meja atau kasir
-5. Proses pembayaran
+### Basic Operation Steps
+1. Create product categories (Food, Beverages, etc.)
+2. Add products to categories
+3. Create and set up tables with QR Codes
+4. Start receiving orders from tables or cashier
+5. Process payments
 
-## Alur Kerja Aplikasi
+## Application Workflow
 
-1. **Pelanggan Datang**:
-   - Staff menyambut dan mengarahkan ke meja
-   - Pelanggan duduk dan scan QR Code di meja
+1. **Customer Arrival**:
+   - Staff welcomes and directs to a table
+   - Customer sits and scans the QR Code on the table
 
-2. **Pemesanan**:
-   - Pelanggan melihat menu digital
-   - Pelanggan memesan melalui smartphone
-   - Pesanan masuk ke sistem
+2. **Ordering**:
+   - Customer views digital menu
+   - Customer orders through smartphone
+   - Order enters the system
 
-3. **Dapur & Bar**:
-   - Staff dapur/bar melihat pesanan baru
-   - Staff memproses dan memperbarui status
+3. **Kitchen & Bar**:
+   - Kitchen/bar staff sees new orders
+   - Staff processes and updates status
 
-4. **Pengantaran**:
-   - Pelayan mengantarkan pesanan ke meja
-   - Status item pesanan diperbarui menjadi "diantarkan"
+4. **Serving**:
+   - Waiter delivers the order to the table
+   - Order item status is updated to "served"
 
-5. **Pembayaran**:
-   - Pelanggan meminta tagihan
-   - Kasir memproses pembayaran
-   - Struk dicetak
+5. **Payment**:
+   - Customer requests the bill
+   - Cashier processes payment
+   - Receipt is printed
 
-## Pengembangan Lebih Lanjut
+## Future Development
 
-- Integrasi dengan printer termal
-- Aplikasi mobile untuk staff
-- Notifikasi real-time menggunakan WebSockets
-- Sistem reservasi meja
-- Laporan stok dan inventori
-- Program loyalitas pelanggan
+- Integration with thermal printers
+- Mobile application for staff
+- Real-time notifications using WebSockets
+- Table reservation system
+- Inventory and stock reports
+- Customer loyalty program
 
-### Tips Tambahan untuk Kolaborasi
+## Contact & Support
 
-- Gunakan branch terpisah untuk fitur baru: `git checkout -b nama-fitur`
-- Selalu pull perubahan terbaru sebelum mulai bekerja: `git pull origin main`
-- Gunakan Issues dan Pull Requests GitHub untuk mengelola pekerjaan tim
-- Pertimbangkan untuk menyiapkan GitHub Actions untuk CI/CD otomatis
+For questions or support, please contact [bagaspratamajunianika72@gmail.com](mailto:bagaspratamajunianika72@gmail.com)
